@@ -1,0 +1,7 @@
+{
+    "name": "cwp-09",
+    "author": "Dmitry",
+    "dependencies": {
+        "bluebird": "^3.5.1"
+    }
+}
