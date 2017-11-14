@@ -6,6 +6,9 @@ const axios = require('axios');
 axios.get('http://pokeapi.co/api/v2/pokemon/42')
     .then((res) => {
         console.log(`name: ${res.data.name}, weight: ${res.data.weight}, height: ${res.data.height}`);
+    }).catch((err) => {
+        console.log('error in id 42')
+        console.error(err);
     })
 
 //download 30 pokemons
@@ -21,6 +24,9 @@ Promise.all(result)
                 console.log(`${resInd}-${ind}: ${pokemon.name}`);
             })
         })
+    }).catch((err) => {
+        console.log('error in 30')
+        console.error(err);
     })
 
 //1, 4, 7
@@ -31,6 +37,9 @@ Promise.any([
     axios.get('http://pokeapi.co/api/v2/pokemon/7')
 ]).then((result) => {
     console.log(`first is: ${result.data.name}`);
+}).catch((err) => {
+    console.log('error in any')
+    console.error(err);
 })
 
 //10 pokemons, items and locations
@@ -52,6 +61,9 @@ Promise.props({
     result["locations"].data.results.forEach((val) => {
         console.log(val.name);
     });
+}).catch((err) => {
+    console.log('error in pokemons/items/locations')
+    console.error(err);
 })
 
 //get 4 berries
@@ -62,4 +74,7 @@ Promise.map([1, 2, 3, 4], (i) => {
     result.forEach((val) => {
         console.log(val.data.name);
     })
+}).catch((err) => {
+    console.log('error in berries');
+    console.error(err);
 })
