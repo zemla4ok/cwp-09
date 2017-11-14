@@ -2,14 +2,14 @@ const Promise = require('bluebird');
 const axios = require('axios');
 
 //download pokemon with id 42
-/*
+
 axios.get('http://pokeapi.co/api/v2/pokemon/42')
     .then((res) => {
         console.log(`name: ${res.data.name}, weight: ${res.data.weight}, height: ${res.data.height}`);
     })
-*/
+
 //download 30 pokemons
-/*
+
 let result = [];
 for(let i=0;i<3;i++){
     result.push(axios.get('http://pokeapi.co/api/v2/pokemon/?limit=10'));
@@ -22,9 +22,9 @@ Promise.all(result)
             })
         })
     })
-*/
+
 //1, 4, 7
-/*
+
 Promise.any([
     axios.get('http://pokeapi.co/api/v2/pokemon/1'),
     axios.get('http://pokeapi.co/api/v2/pokemon/4'),
@@ -32,7 +32,7 @@ Promise.any([
 ]).then((result) => {
     console.log(`first is: ${result.data.name}`);
 })
-*/
+
 //10 pokemons, items and locations
 
 Promise.props({
@@ -52,4 +52,14 @@ Promise.props({
     result["locations"].data.results.forEach((val) => {
         console.log(val.name);
     });
+})
+
+//get 4 berries
+
+Promise.map([1, 2, 3, 4], (i) => {
+    return axios.get(`http://pokeapi.co/api/v2/pokemon/${i}`)
+}).then((result) => {
+    result.forEach((val) => {
+        console.log(val.data.name);
+    })
 })
