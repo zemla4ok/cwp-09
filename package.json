@@ -2,6 +2,8 @@
     "name": "cwp-09",
     "author": "Dmitry",
     "dependencies": {
-        "bluebird": "^3.5.1"
+        "axios": "^0.17.1",
+        "bluebird": "^3.5.1",
+        "express": "^4.16.2"
     }
 }
