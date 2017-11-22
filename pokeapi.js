@@ -12,7 +12,7 @@ axios.get('http://pokeapi.co/api/v2/pokemon/42')
     })
 
 //download 30 pokemons
-/*
+
 let result = [];
 for(let i=0;i<3;i++){
     result.push(axios.get('http://pokeapi.co/api/v2/pokemon/?limit=10'));
@@ -79,4 +79,3 @@ Promise.map([1, 2, 3, 4], (i) => {
     console.error(err);
 })
 
-*/

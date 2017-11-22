@@ -29,23 +29,3 @@ dirs.forEach((dir) => {
 Promise.mapSeries(arrOfPaths, (path) => {
     return fs.mkdirAsync(path);
 })
-
-
-/*
-let arr = [];     
-dirs.forEach((dir) => { 
-let dirArray = dir.split('/'); 
-let dirPath = './files/'; 
-dirArray.forEach((item) => { 
-dirPath += item + path.sep; 
-if (arr.indexOf(dirPath) == -1) { 
-arr.push(dirPath) 
-} 
-}); 
-}); 
-console.log(arr) 
-Promise.mapSeries(arr, (path) => { 
-return fs.mkdirAsync(path); 
-}).then(() => { 
-console.log('all done') 
-}); */
